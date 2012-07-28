@@ -1,0 +1,27 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+%Sample List of Symbols
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tabbing}
+% YOU NEED TO ADD THE FIRST ONE MANUALLY TO ADJUST THE TABBING AND SPACES
+\parbox{20mm}{$\I$}\=\parbox{115mm}{General Image\dotfill \pageref{symbol:I}}\\
+%ADD THE REST OF SYMBOLS WITH THE HELP OF MACRO
+\addsymbol I_{i,j}:			{$i$-th Pixel and $j$-th Pixel an Image $\I$}{symbol:Iij}
+\addsymbol I(x,y,t):		{Intensity of an image $\I$ at position $(x,y)$ at time $t$, used for anisotropic filtering}{symbol:Ixyt}
+\addsymbol \A:				{Binary Image}{symbol:BinI}
+\addsymbol \B:				{Binary structuring element}{symbol:struct}
+\addsymbol \F:				{Generic Feature}{symbol:F}
+\addsymbol \F(I_{i,j}):		{Result of a generic feature applied on a pixel}{symbol:FIij}
+\addsymbol \G:				{Gray Level Co-Occurrence Matrix}{symbol:G}
+\addsymbol g_{ij}:			{$(i,j)$-Element of $\G$}{symbol:gij}
+\addsymbol T:				{General threshold used for a segmenting a gray-scale image}{symbol:thres}
+\addsymbol T_i:				{$i$-th threshold used for a segmenting a gray-scale image with more than two pixel-classes, ($i \leq j \Rightarrow T_i \leq T_j$)}{symbol:thres_i}
+
+\addsymbol G:			{Graph}{symbol:graph}
+\addsymbol V:			{Set of vertices belonging to a graph $G$}{symbol:vertices}
+\addsymbol E:			{Set of edges belonging to a graph $G$}{symbol:edges}
+% .
+% .
+% .
+% ALWAYS KEEP THE FOLLOWING LINE
+\end{tabbing}
+

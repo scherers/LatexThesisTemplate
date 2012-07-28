@@ -1,0 +1,165 @@
+\include{formatAndDefs}
+
+\begin{document}
+
+
+%
+% Title Page
+%
+\pagestyle{empty}
+
+\begin{titlepage}
+$ $
+\vspace{1 cm}
+\center
+
+\Huge{\textbf{\textsc{Titel of your Thesis}}}
+\vspace{1em}
+
+\huge{
+	Master's Thesis\\
+	\vspace{2em}
+}
+\vspace{2em}
+\large{
+	\textit{written by}\\
+}
+\Large{
+	Max Muster\\
+}
+\vspace{3em}
+
+\large{
+	\textit{supervised by}\\
+}
+\Large{
+	Prof. Dr. Hans Meier\\
+}
+\large{
+	(ETH Zurich)\\
+}
+\vspace{1em}
+\Large{
+	Markus Mueller\\
+}
+\large{
+	(ETH Zurich)\\
+}
+
+
+\vspace{3em}
+\large{
+%    Departement Geistes-, Sozial- und Staatswissenschaften\\
+%	Seminar for Applied Mathematics\\
+%	ETH Zürich\\[1cm]
+    ETH Zurich\\[1cm]
+	\textit{enter your date here}
+}
+
+\end{titlepage}
+
+
+%% play around with this to ensure correct page order (left/right page, etc)
+\mbox{ }
+\newpage
+%\mbox{ }
+%\newpage
+
+% formatting for first page with content
+\setcounter{page}{1}
+\pagenumbering{roman}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE] {\leftmark}
+\fancyhead[RO] {\rightmark}
+\fancyfoot[RO,LE] {\thepage}
+
+
+%
+% Abstract
+%
+\include{abstract}
+\include{acknowledgments}
+
+
+%
+% ToC
+%
+
+\mbox{ }
+\thispagestyle{empty}
+\newpage
+\dosecttoc
+\tableofcontents			
+
+\newpage
+\mbox{ }
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+%
+% Content starts here
+%
+
+\include{intro}
+
+%\mbox{ }
+%\thispagestyle{empty}
+
+\include{background}
+
+%\newpage
+%\mbox{ }
+%\thispagestyle{empty}
+
+\include{conclusion}
+
+\thispagestyle{empty}
+
+%
+% Appendix
+%
+
+\appendix
+\include{app1}
+
+\newpage
+\mbox{ }
+\thispagestyle{empty}
+\newpage
+
+
+\bibliographystyle{ThesisStyleWithEtAl}
+\bibliography{thesis}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+\listoffigures
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+\lstlistoflistings
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+\listoftables
+
+\newpage
+\thispagestyle{empty}
+
+
+\end{document}

@@ -1,0 +1,214 @@
+\documentclass[BCOR1cm, twoside, openright, titlepage, bibtotoc, abstracton]{scrartcl}
+
+\usepackage[german,english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amstext,amssymb}
+\usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage[a4paper,pagebackref,hyperindex=true]{hyperref}
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{appendix}
+\usepackage{minitoc}
+\usepackage{algorithm}
+
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\usepackage[scaled=0.8]{beramono}
+
+\usepackage{fancyhdr}                   
+\setlength{\headheight}{25.2232pt}
+
+\selectlanguage{english}
+
+% listings
+\usepackage{listings}
+\lstset{ %
+  language=C++, % choose the language of the code
+  basicstyle=\small\ttfamily, % the size of the fonts that are used for the code
+  numbers=left, % where to put the line-numbers
+  numberstyle=\small\ttfamily\color[rgb]{0.6,0.6,0.6}, % the size of the fonts that are used for the line-numbers
+  stepnumber=1, % the step between two line-numbers. If it's 1 each line
+  xleftmargin=4mm,
+  % will be numbered
+  numbersep=5pt, % how far the line-numbers are from the code
+  backgroundcolor=\color{white}, % choose the background color. You must add \usepackage{color}
+  showspaces=false, % show spaces adding particular underscores
+  showstringspaces=false, % underline spaces within strings
+  showtabs=false, % show tabs within strings adding particular underscores
+  %frame=l, % adds a frame around the code
+  frame=single,
+  tabsize=4, % sets default tabsize to 2 spaces
+  breaklines=true, % sets automatic line breaking
+  breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+  % also try caption instead of title
+  escapeinside={@}{@}, % if you want to add a comment within your code
+  morekeywords={*,...,omp, parallel,__local,__global,__kernel,value_type}, % if you want to add more keywords to the set
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.133,0.545,0.133}\textit,
+  stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+\newcommand{\matlab}[2] {\vspace{3mm}\lstinputlisting[title={#2}]{#1}}
+
+% Links in pdf
+\usepackage{color}
+\newcommand{\blue}{ \color{blue} }
+\definecolor{linkcol}{rgb}{0,0,0.4}
+\definecolor{citecol}{rgb}{0.5,0,0}
+
+\hypersetup
+{
+bookmarksopen=true,
+pdftitle="Master Thesis",
+pdfauthor="Max Muster",
+pdfsubject="Title of the Document", %subject of the document
+%pdftoolbar=false, % toolbar hidden
+pdfmenubar=true, %menubar shown
+pdfhighlight=/O, %effect of clicking on a link
+colorlinks=true, %couleurs sur les liens hypertextes
+pdfpagemode=None, %aucun mode de page
+pdfpagelayout=SinglePage, %ouverture en simple page
+pdffitwindow=true, %pages ouvertes entierement dans toute la fenetre
+linkcolor=linkcol, %couleur des liens hypertextes internes
+citecolor=citecol, %couleur des liens pour les citations
+urlcolor=linkcol %couleur des liens pour les url
+}
+
+% nicer backref links
+\renewcommand*{\backref}[1]{}
+\renewcommand*{\backrefalt}[4]{%
+\ifcase #1 %
+(Not cited.)%
+\or
+(Cited on page~#2.)%
+\else
+(Cited on pages~#2.)%
+\fi}
+\renewcommand*{\backrefsep}{, }
+\renewcommand*{\backreftwosep}{ and~}
+\renewcommand*{\backreflastsep}{ and~}
+
+
+\newcommand{\ve}[1]{
+	\mathbf{#1}
+	%\vec{#1}
+}
+
+\newcommand{\grad}{ \textbf{\,grad\,} }
+\providecommand{\argmin}{\operatorname*{argmin}} % operatorname makes _{..} appear centered
+\newcommand{\dx}{ \,\ve{dx} }
+
+\renewcommand{\a}{\ve{a}}
+\renewcommand{\b}{\ve{b}}
+\renewcommand{\c}{\ve{c}}
+\renewcommand{\d}{\ve{d}}
+\newcommand{\e}{\ve{e}}
+\newcommand{\f}{\ve{f}}
+\newcommand{\g}{\ve{g}}
+\newcommand{\h}{\ve{h}}
+\renewcommand{\i}{\ve{i}}
+\renewcommand{\j}{\ve{j}}
+\renewcommand{\k}{\ve{k}}
+\renewcommand{\l}{\ve{l}}
+\newcommand{\m}{\ve{m}}
+\newcommand{\n}{\ve{n}}
+\renewcommand{\o}{\ve{o}}
+\newcommand{\p}{\ve{p}}
+\newcommand{\q}{\ve{q}}
+\renewcommand{\r}{\ve{r}}
+\newcommand{\s}{\ve{s}}
+\renewcommand{\t}{\ve{t}}
+\renewcommand{\u}{\ve{u}}
+\renewcommand{\v}{\ve{v}}
+\newcommand{\w}{\ve{w}}
+\newcommand{\x}{\ve{x}}
+\newcommand{\y}{\ve{y}}
+\newcommand{\z}{\ve{z}}
+
+\newcommand{\A}{\ve{A}}
+\newcommand{\B}{\ve{B}}
+\newcommand{\C}{\ve{C}}
+\newcommand{\D}{\ve{D}}
+\newcommand{\E}{\ve{E}}
+\newcommand{\F}{\ve{F}}
+\newcommand{\G}{\ve{G}}
+\renewcommand{\H}{\ve{H}}
+\newcommand{\I}{\ve{I}}
+\newcommand{\J}{\ve{J}}
+\newcommand{\K}{\ve{K}}
+\renewcommand{\L}{\ve{L}}
+\newcommand{\M}{\ve{M}}
+\newcommand{\N}{\ve{N}}
+\renewcommand{\O}{\ve{O}}
+\renewcommand{\P}{\ve{P}}
+\newcommand{\Q}{\ve{Q}}
+\newcommand{\R}{\ve{R}}
+\renewcommand{\S}{\ve{S}}
+\newcommand{\T}{\ve{T}}
+\newcommand{\U}{\ve{U}}
+\newcommand{\V}{\ve{V}}
+\newcommand{\W}{\ve{W}}
+\newcommand{\X}{\ve{X}}
+\newcommand{\Y}{\ve{Y}}
+\newcommand{\Z}{\ve{Z}}
+
+\hyphenation{inter-grid}
+
+\newenvironment{packed_item}{
+\vspace{-2mm}
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\vspace{-2mm}\end{itemize}}
+
+% paragraph line skip
+%\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+
+
+% Macro for 'List of Symbols', 'List of Notations' etc...
+\def\listofsymbols{\input{symbols} \clearpage}
+\def\addsymbol #1: #2#3{$#1$ \> \parbox{115mm}{#2 \dotfill \pageref{#3}}\\}
+\def\newnot#1{\label{#1}} 
+
+
+\newcommand{\subfigureautorefname}{\figureautorefname}
+
+
+\def\sectionautorefname{Chapter}
+\def\subsectionautorefname{Section}
+\def\subsubsectionautorefname{Section}
+\def\algorithmautorefname{Algorithm}
+
+\usepackage{hyperref}
+
+\font\capfonta=cmbx12 at 32 pt % or yinit, or...?
+\newbox\capbox \newcount\capl \def\a{A}
+\def\docappar{\medbreak\noindent\setbox\capbox\hbox{\capfonta\a\hskip0.10em}%
+\hangindent=\wd\capbox%
+\capl=\ht\capbox\divide\capl by\baselineskip\advance\capl by1\hangafter=-\capl%
+\hbox{\vbox to8pt{\hbox to0pt{\hss\box\capbox}\vss}}}
+\def\cappar{\afterassignment\docappar\noexpand\let\a }
+
+\geometry{a4paper, top=45mm, left=27mm, right=27mm, bottom=50mm}
+\oddsidemargin 15mm
+\evensidemargin 5mm
+%\textwidth 135mm
+\setlength{\textwidth}{140mm}
+
+%% Packages für Grafiken & Abbildungen %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%Zum Laden von Grafiken
+\graphicspath{{.}{images/}}
+%\usepackage{tikz} %%Vektorgrafiken aus LaTeX heraus erstellen
+
+
+
+

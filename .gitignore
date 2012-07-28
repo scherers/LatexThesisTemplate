@@ -1,0 +1,9 @@
+*~
+*.lof
+*.lol
+*.lot
+thesis.synctex.gz
+*.maf
+*.mtc*
+*.stc*
+*.pdf
